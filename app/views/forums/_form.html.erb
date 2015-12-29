@@ -1,0 +1,4 @@
+<%= simple_form_for([@category, @category.forum.build]) do |f| %>
+	<%= f.input :title, label: "Forum Name" %>
+	<%= f.button :submit %>
+<% end %>

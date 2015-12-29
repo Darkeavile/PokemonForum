@@ -1,0 +1,8 @@
+<h1><%= @forum.title %> 
+
+<%= link_to 'Add Topic', new_category_forum_topic_path(@forum.category, @forum), class: "btn btn-default" %></h1>
+
+<%= render @forum.topic %>
+
+<%= link_to 'Back', categories_path %>
+

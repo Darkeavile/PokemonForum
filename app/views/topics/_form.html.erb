@@ -1,0 +1,5 @@
+<%= simple_form_for([@forum.category, @forum, @forum.topic.build]) do |f| %>
+	<%= f.input :subject %>
+	<%= f.input :content, label: "Post" %>
+	<%= f.button :submit %>
+<% end %>

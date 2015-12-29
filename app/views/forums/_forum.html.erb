@@ -1,0 +1,4 @@
+<h2><%= link_to forum.title, category_forum_path(forum.category, forum) %> 
+<%= link_to 'Edit Forum', edit_category_forum_path(forum.category, forum), class: "btn btn-default" %>
+<%= link_to 'Delete Forum', category_forum_path(forum.category, forum), method: :delete, class: "btn btn-default" %>
+</h2>

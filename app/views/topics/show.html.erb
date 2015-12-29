@@ -1,0 +1,16 @@
+<h1><%= @topic.subject %></h1>
+<p>Posted by <%= @topic.user.name %> <%= time_ago_in_words(@topic.created_at) %> ago</p>
+<p><%= @topic.content %></p>
+
+
+<%= link_to "Edit", edit_category_forum_topic_path(@forum.category, @forum, @topic), class: "btn btn-default" %>
+<%= link_to "Delete", category_forum_topic_path(@forum.category, @forum, @topic), method: :delete, class: "btn btn-default" %>
+
+
+<%= link_to "Back", category_forum_path(@forum.category, @forum) %>
+
+<h2>Replies</h2>
+
+<%= render @topic.reply %>
+
+<%= render 'replies/form' %>
