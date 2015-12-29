@@ -15,7 +15,8 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'devise', '~> 3.5', '>= 3.5.3'
 
-
+gem 'puma'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
@@ -23,3 +24,5 @@ group :development, :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+ruby "2.2.0"
