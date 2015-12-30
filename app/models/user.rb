@@ -1,8 +1,14 @@
 class User < ActiveRecord::Base
-  has_many :topic
-  has_many :reply
+  has_many :topics
+  has_many :replies
+  has_many :groups, :through => :group_memberships
+  has_many :groupmemberships
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+   def add_group(group, role = "member")
+     self.groupmemberships.build(:group => group, :role => role)
+   end
 end

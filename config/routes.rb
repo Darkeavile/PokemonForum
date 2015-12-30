@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'admin/index'
 
-  get 'admins/index'
-
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
+  resources :users, :only => [:show, :index]
+  resources :profiles
   resources :categories do
 	  resources :forums do
 	    resources :topics do

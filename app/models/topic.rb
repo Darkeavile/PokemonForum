@@ -1,7 +1,7 @@
 class Topic < ActiveRecord::Base
 	belongs_to :forum
   	belongs_to :user
-  	has_many :reply
+  	has_many :replies
 
   	before_destroy :delete_replies
 

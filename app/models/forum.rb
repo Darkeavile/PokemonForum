@@ -1,6 +1,6 @@
 class Forum < ActiveRecord::Base
   belongs_to :category
-  has_many :topic
+  has_many :topics
 
   before_destroy :destroy_topics
 

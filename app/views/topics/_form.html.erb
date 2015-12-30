@@ -1,4 +1,4 @@
-<%= simple_form_for([@forum.category, @forum, @forum.topic.build]) do |f| %>
+<%= simple_form_for([@forum.category, @forum, @forum.topics.build]) do |f| %>
 	<%= f.input :subject %>
 	<%= f.input :content, label: "Post" %>
 	<%= f.button :submit %>

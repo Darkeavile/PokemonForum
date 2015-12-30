@@ -4,7 +4,7 @@ class RepliesController < ApplicationController
   before_action :find_reply, only: [:edit, :update, :destroy]
   
   def create
-    @reply = @topic.reply.create(reply_params)
+    @reply = @topic.replies.create(reply_params)
     @reply.user_id = current_user.id
     if @reply.save
       redirect_to category_forum_topic_path(@topic.forum.category, @topic.forum, @topic)
@@ -39,6 +39,6 @@ class RepliesController < ApplicationController
     end
 
     def find_reply
-      @reply = @topic.reply.find(params[:id])
+      @reply = @topic.replies.find(params[:id])
     end
 end

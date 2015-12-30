@@ -4,15 +4,15 @@ class TopicsController < ApplicationController
   before_action :find_topic, only: [:show, :edit, :update, :destroy]
 
   def show
-    @replies = @topic.reply.all.order("created_at DESC")
+    @replies = @topic.replies.all.order("created_at DESC")
   end
 
   def new
-    @topic = current_user.topic.build
+    @topic = current_user.topics.build
   end
   
   def create
-    @topic = current_user.topic.build(topic_params)
+    @topic = current_user.topics.build(topic_params)
     @topic.forum_id = @forum.id;
     if @topic.save
       redirect_to category_forum_topic_path(@forum.category, @forum, @topic)
@@ -46,6 +46,6 @@ class TopicsController < ApplicationController
     end
 
     def find_topic
-      @topic = @forum.topic.find(params[:id])
+      @topic = @forum.topics.find(params[:id])
     end
 end

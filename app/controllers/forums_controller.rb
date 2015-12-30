@@ -3,7 +3,7 @@ class ForumsController < ApplicationController
   before_action :find_forum, only: [:show, :edit, :update, :destroy]
 
   def show
-  	@topics = @forum.topic.all.order("created_at DESC")
+  	@topics = @forum.topics.all.order("created_at DESC")
   end
 
   def new
@@ -44,6 +44,6 @@ class ForumsController < ApplicationController
 		end
 
 		def find_forum
-			@forum = @category.forum.find(params[:id])
+			@forum = @category.forums.find(params[:id])
 		end
 end

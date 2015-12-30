@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role: MyString
+  scope: MyString
+  joined_at: 2015-12-30
+
+two:
+  role: MyString
+  scope: MyString
+  joined_at: 2015-12-30
