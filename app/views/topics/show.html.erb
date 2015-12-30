@@ -1,5 +1,5 @@
 <h1><%= @topic.subject %></h1>
-<p>Posted by <%= @topic.user.name %> <%= time_ago_in_words(@topic.created_at) %> ago</p>
+<p>Posted by <%= @topic.user.email %> <%= time_ago_in_words(@topic.created_at) %> ago</p>
 <p><%= @topic.content %></p>
 
 

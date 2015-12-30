@@ -1,4 +1,4 @@
 <p><%= reply.content %></p>
-<p>Posted by <%= reply.user.name %> <%= time_ago_in_words(reply.created_at) %> ago</p>
+<p>Posted by <%= reply.user.email %> <%= time_ago_in_words(reply.created_at) %> ago</p>
 <%= link_to 'Edit Post', edit_category_forum_topic_reply_path(reply.topic.forum.category, reply.topic.forum, reply.topic, reply) %>
 <%= link_to 'Delete Post', category_forum_topic_reply_path(reply.topic.forum.category, reply.topic.forum, reply.topic, reply), method: :delete %>
