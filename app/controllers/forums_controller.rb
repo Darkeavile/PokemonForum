@@ -13,7 +13,7 @@ class ForumsController < ApplicationController
   def create
   	@forum = @category.forum.create(forum_params)
   	if @forum.save
-  		redirect_to categories_path
+  		redirect_to admin_index_path
   	else
   		render 'new'
   	end
@@ -24,7 +24,7 @@ class ForumsController < ApplicationController
 
   def update
   	if @forum.update(forum_params)
-  		redirect_to categories_path
+  		redirect_to admin_index_path
   	else
   		render 'edit'
   	end
@@ -32,7 +32,7 @@ class ForumsController < ApplicationController
 
   def destroy
   	@forum.destroy
-  	redirect_to categories_path
+  	redirect_to admin_index_path
   end
 	private
 		def forum_params

@@ -19,8 +19,11 @@
 				<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
 			<% else %>
 				<li><%= link_to "Login", new_user_session_path %></li>
-			<% end%>
+			<% end%>	
 		</ul>
+		<% if user_signed_in? and current_user.try(:admin?) %>
+			<%= link_to "Admin Control Panel", admin_index_path, class: "navbar-right navbar-text navbar-link" %>
+		<% end %>
 	</div>
 </div>
 
