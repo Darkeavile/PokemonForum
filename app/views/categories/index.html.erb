@@ -1,7 +1,8 @@
 
-<h1>Pokemon Forum <%= link_to 'Add Category', new_category_path, class: "btn btn-default" %></h1>
+<h1>Pokemon Forum </h1>
 
 <% @categories.each do |category| %>
+  <% @name = "category-#{category.id}"%>
   <div class="row">
     <div id="faq" class="col-md-9">
       <div class="panel-group" id="accordion">
@@ -9,11 +10,11 @@
           <div class="panel-heading">
             <h4 class="panel-title">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
-                href="#collapse-1"><%= category.title %>
+                href='#<%= @name %>'><%= category.title %>
               </a>
             </h4>
           </div>
-          <div id="collapse-1" class="panel-collapse collapse">
+          <div id='<%= @name %>' class="panel-collapse collapse">
             <div class="panel-body"><%= render category.forum %>
             </div>
           </div>
