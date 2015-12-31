@@ -26,7 +26,7 @@
 		<div class = "col-sm-2 col-md-2 col-lg-2">
 			<% if profile.lastpost != 0 %>
 				<% @topic = Topic.find(profile.lastpost) %>
-				<%= link_to topic.subject, category_forum_topic_path(@topic.forum.category, @topic.forum,@topic) %>
+				<%= link_to @topic.subject, category_forum_topic_path(@topic.forum.category, @topic.forum,@topic) %>
 			<% else %>
 				<p>None</p>
 			<% end %>
@@ -38,7 +38,7 @@
 			<p>N/A</p>
 		</div>
 		<div class = "col-sm-2 col-md-2 col-lg-2">
-			<%= time_ago_in_words(profile.created_at) %>
+			<%= time_ago_in_words(profile.created_at) %> ago
 		</div>
 	</div>
 <% end %>

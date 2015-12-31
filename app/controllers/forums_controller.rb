@@ -11,7 +11,7 @@ class ForumsController < ApplicationController
   end
   
   def create
-  	@forum = @category.forum.create(forum_params)
+  	@forum = @category.forums.create(forum_params)
   	if @forum.save
   		redirect_to admin_index_path
   	else

@@ -7,7 +7,7 @@ class Topic < ActiveRecord::Base
 
   	private
   		def delete_replies
-  			self.reply.destroy_all
+  			self.replies.destroy_all
   		end
 
 end

@@ -6,6 +6,6 @@ class Forum < ActiveRecord::Base
 
   private
   	def destroy_topics
-  		self.topic.destroy_all
+  		self.topics.destroy_all
   	end
 end

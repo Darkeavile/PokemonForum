@@ -8,8 +8,9 @@ class RepliesController < ApplicationController
     @reply = @topic.replies.create(reply_params)
     @reply.user_id = current_user.id
     if @reply.save
-      current_user.profile.totalposts++
+      current_user.profile.totalposts += 1
       current_user.profile.lastpost = @topic.id
+      current_user.profile.save
       redirect_to category_forum_topic_path(@topic.forum.category, @topic.forum, @topic)
     else
       render 'new'

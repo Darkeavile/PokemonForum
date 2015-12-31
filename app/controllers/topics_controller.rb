@@ -16,8 +16,9 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.build(topic_params)
     @topic.forum_id = @forum.id;
     if @topic.save
-      current_user.profile.totalposts++
       current_user.profile.lastpost = @topic.id
+      current_user.profile.lastpost = @topic.id
+      current_user.profile.save
       redirect_to category_forum_topic_path(@forum.category, @forum, @topic)
     else
       render 'new'

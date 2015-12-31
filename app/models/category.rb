@@ -5,6 +5,6 @@ class Category < ActiveRecord::Base
 
 	private
 		def delete_forums
-			self.forum.destroy_all
+			self.forums.destroy_all
 		end
 end
