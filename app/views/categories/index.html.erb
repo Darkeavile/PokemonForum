@@ -1,34 +1,32 @@
-
-<h1>Pokemon Forum </h1>
   <div class="row">
-  <div id="faq" class="col-md-9">
-      <div class="panel-group" id="accordion">
+  <div id="faq" class="col-md-8 col-md-offset-2" style="background:url('http://i64.tinypic.com/281y0jo.jpg');background-repeat:no-repeat;background-size:100%;PADDING: 80px;font-size:50px;border-style: none;text-align:center;">
+Pokemon Forum
+<br><br>
+  </div>
+  </div>
+  <br><br>
+  <div class="row">
+  <div id="faq" class="col-md-8 col-md-offset-2" >
+      <div class="panel-group" id="accordion" style="border-style: none;">
 <% @categories.each do |category| %>
   <% @name = "category-#{category.id}"%>
 
 
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
+          <div class="panel-heading" style="background:url('http://i67.tinypic.com/34fi6gx.jpg');background-size:100%;background-repeat:no-repeat;text-align:center;PADDING: 12px;font-size:50px;border-style: none;">
+            <h3 class="panel-title">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
                 href='#<%= @name %>'><%= category.title %>
               </a>
-            </h4>
+            </h3>
           </div>
           <div id='<%= @name %>' class="panel-collapse collapse">
             <div class="panel-body">
-			<table>
-  <tr>
-    <th width="70%">Forum</th>
-    <th width="30%">Last Post</th>
-  </tr>
-      <tr>
-      <td width="70%"><h4><%= render category.forums %></h4>
-	  </td>
-      <td class="right" width="30%">LPE</td>
-	        <td>Last Post Example</td>
-    
-	  </tr></table>
+<div class="row">
+  <div class="col-sm-10">Forum</div>
+  <div class="col-sm-2">Latest Post</div>
+</div>
+<%= render category.forums %>
             </div>
           </div>
 
