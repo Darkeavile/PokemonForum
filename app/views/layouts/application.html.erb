@@ -21,8 +21,13 @@
 				<li><%= link_to "Login", new_user_session_path %></li>
 			<% end%>	
 		</ul>
-		<% if user_signed_in? and current_user.try(:admin?) %>
-			<%= link_to "Admin Control Panel", admin_index_path, class: "navbar-right navbar-text navbar-link" %>
+		<% if user_signed_in? %>
+			
+			<%= link_to "Profile", profile_path(current_user.profile_id), class: "navbar-right navbar-text navbar-link" %>
+			<%= link_to "Users", users_path, class: "navbar-right navbar-text navbar-link" %>
+			<% if current_user.try(:admin?) %>
+				<%= link_to "Admin Control Panel", admin_index_path, class: "navbar-right navbar-text navbar-link" %>
+			<% end %>
 		<% end %>
 	</div>
 </div>

@@ -2,7 +2,8 @@ class TopicsController < ApplicationController
 
   before_action :find_forum
   before_action :find_topic, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def show
     @replies = @topic.replies.all.order("created_at DESC")
   end
@@ -15,6 +16,8 @@ class TopicsController < ApplicationController
     @topic = current_user.topics.build(topic_params)
     @topic.forum_id = @forum.id;
     if @topic.save
+      current_user.profile.totalposts++
+      current_user.profile.lastpost = @topic.id
       redirect_to category_forum_topic_path(@forum.category, @forum, @topic)
     else
       render 'new'

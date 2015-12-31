@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :replies
   has_many :groups, :through => :group_memberships
   has_many :groupmemberships
+  belongs_to :profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -1,0 +1,7 @@
+<%= simple_form_for(@profile) do |f| %>
+	<%= f.input :name, label: "User Name" %>
+	<%= f.input :image, label: "Avatar URL" %>
+	<%= f.input :about, label: "About Me" %>
+	<%= f.input :signature %>
+	<%= f.button :submit %>
+<% end %>

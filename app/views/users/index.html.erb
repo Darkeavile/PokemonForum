@@ -1,2 +1,44 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Users</h1>
+
+<div class = "row">
+	<div class = "col-sm-4 col-md-4 col-lg-4">
+		Name
+	</div>
+	<div class = "col-sm-2 col-md-2 col-lg-2">
+		Last Post
+	</div>
+	<div class = "col-sm-2 col-md-2 col-lg-2">
+		Total Posts
+	</div>
+	<div class = "col-sm-2 col-md-2 col-lg-2">
+		Group
+	</div>
+	<div class = "col-sm-2 col-md-2 col-lg-2">
+		Date Joined
+	</div>
+</div>
+
+<% @profiles.each do |profile| %>
+	<div class = "row">
+		<div class = "col-sm-4 col-md-4 col-lg-4">
+			<%= profile.name %>
+		</div>
+		<div class = "col-sm-2 col-md-2 col-lg-2">
+			<% if profile.lastpost != 0 %>
+				<% @topic = Topic.find(profile.lastpost) %>
+				<%= link_to topic.subject, category_forum_topic_path(@topic.forum.category, @topic.forum,@topic) %>
+			<% else %>
+				<p>None</p>
+			<% end %>
+		</div>
+		<div class = "col-sm-2 col-md-2 col-lg-2">
+			<%= profile.totalposts %>
+		</div>
+		<div class = "col-sm-2 col-md-2 col-lg-2">
+			<p>N/A</p>
+		</div>
+		<div class = "col-sm-2 col-md-2 col-lg-2">
+			<%= time_ago_in_words(profile.created_at) %>
+		</div>
+	</div>
+<% end %>

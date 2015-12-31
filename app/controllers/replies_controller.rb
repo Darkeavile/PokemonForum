@@ -2,11 +2,14 @@ class RepliesController < ApplicationController
   
   before_action :find_topic
   before_action :find_reply, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
   
   def create
     @reply = @topic.replies.create(reply_params)
     @reply.user_id = current_user.id
     if @reply.save
+      current_user.profile.totalposts++
+      current_user.profile.lastpost = @topic.id
       redirect_to category_forum_topic_path(@topic.forum.category, @topic.forum, @topic)
     else
       render 'new'
