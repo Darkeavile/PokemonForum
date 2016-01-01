@@ -1,8 +1,9 @@
-<h1>Groups</h1>
+<h1>Groups
 <% if current_user.try(:admin?) or current_user.groups.include?("Admin") %>
 	<%= link_to "New Group", new_group_path, class: "btn btn-default" %>
 <% end %>
+</h1>
 
 <% @groups.each do |group| %>
-<%= group.name %>
+<h3><%= link_to group.name, group_path(group.id) %></h3>
 <% end %>

@@ -1,0 +1,8 @@
+<h1><%= @group.name %> 
+
+<% @groupusers.each do |user| %>
+	<%= render user.profile %>
+<% end %>
+
+
+<%= link_to 'Home', categories_path %>
