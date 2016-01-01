@@ -8,4 +8,7 @@ class UsersController < ApplicationController
   def index
   	@profiles = Profile.all.order("name ASC")
   end
+
+
+   
 end

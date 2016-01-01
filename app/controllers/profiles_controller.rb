@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
     @profile.lastpost = 0
     @profile.totalposts = 0
     if @profile.save
-      current_user.profile_id = @profile.id
+      current_user.update_attribute(:profile_id, @profile.id)
       redirect_to root_path
     else
       render 'new'

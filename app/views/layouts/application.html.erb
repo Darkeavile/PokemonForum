@@ -22,10 +22,12 @@
 			<% end%>	
 		</ul>
 		<% if user_signed_in? %>
-			
-			<%= link_to "Profile", profile_path(current_user.profile_id), class: "navbar-right navbar-text navbar-link" %>
-			<%= link_to "Users", users_path, class: "navbar-right navbar-text navbar-link" %>
+			<% if not current_user.profile.blank? %>
+				<%= link_to "Profile", profile_path(current_user.profile_id), class: "navbar-right navbar-text navbar-link" %>
+				<%= link_to "Users", users_path, class: "navbar-right navbar-text navbar-link" %>
+			<% end %>
 			<% if current_user.try(:admin?) %>
+				<%= link_to "Groups", groups_path, class: "navbar-right navbar-text navbar-link" %>
 				<%= link_to "Admin Control Panel", admin_index_path, class: "navbar-right navbar-text navbar-link" %>
 			<% end %>
 		<% end %>

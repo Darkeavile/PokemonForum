@@ -3,9 +3,11 @@
 one:
   role: MyString
   scope: MyString
-  joined_at: 2015-12-30
+  user_id: 
+  group_id: 
 
 two:
   role: MyString
   scope: MyString
-  joined_at: 2015-12-30
+  user_id: 
+  group_id: 

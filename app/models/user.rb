@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   def add_group(group, role = "member")
-     self.groupmemberships.build(:group => group, :role => role)
-   end
+  def add_group(group, role)
+    self.groupmemberships.build(:group => group, :role => role)
+  end
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   resources :users, :only => [:show, :index]
   resources :profiles
+  resources :groups
   resources :categories do
 	  resources :forums do
 	    resources :topics do
