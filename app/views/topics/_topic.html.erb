@@ -1,1 +1,5 @@
-<h2><%= link_to topic.subject, category_forum_topic_path(topic.forum.category, topic.forum,topic) %></h2>
+<div class="row hoverDiv">
+  <div class="col-sm-6 col-sm-offset-2"><h3><%= link_to topic.subject, category_forum_topic_path(topic.forum.category, topic.forum,topic) %></div>
+    <div class="col-sm-1"><small>Author</div>
+  <div class="col-sm-1">Latest Post</small></div></h3>
+  </div>

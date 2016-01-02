@@ -1,8 +1,25 @@
-<h1><%= @forum.title %> 
+<  <div class="row">
+  <div id="faq" class="col-md-8 col-md-offset-2" style="background:url('http://i64.tinypic.com/281y0jo.jpg');background-repeat:no-repeat;background-size:100%;PADDING: 80px;font-size:20px;border-style: none;text-align:center;">
+<h1><%= @forum.title %> </h1><br>
+<br>
+  </div>
+  </div>
+  <br>
+<div class="row">
 
-<%= link_to 'Add Topic', new_category_forum_topic_path(@forum.category, @forum), class: "btn btn-default" %></h1>
+  <div class="col-sm-6 col-sm-offset-2" style="border:outset;">Topic </div>
+  <div class="col-sm-1" style="border:outset;">Author</div>
+  <div class="col-sm-1" style="border:outset;">Latest Post</div>
+  <div class="col-sm-1"><%= link_to 'Add Topic', new_category_forum_topic_path(@forum.category, @forum), class: "btn btn-xs btn-default" %></div>
+	 </div>
+
 
 <%= render @forum.topics %>
 
-<%= link_to 'Back', categories_path %>
+<div class="row">
 
+  <div class="col-sm-7 col-sm-offset-2" style="border:outset;">&nbsp;</div>
+  <div class="col-sm-1" style="border:outset;"><%= link_to 'Back', categories_path %></div>
+  <div class="col-sm-1" >&nbsp;
+</div>
+	 </div>
