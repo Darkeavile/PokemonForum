@@ -6,6 +6,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.boolean :url
       t.text :about
       t.text :signature
+      t.integer :lastpost
+      t.integer :totalposts
       t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
